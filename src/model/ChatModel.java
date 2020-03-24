@@ -2,9 +2,10 @@ package model;
 
 import utility.PropertyChangeSubject;
 
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
-public interface ChatModel extends PropertyChangeSubject
+public interface ChatModel extends PropertyChangeSubject, PropertyChangeListener
 {
  String getUserName();
  String getMessage();

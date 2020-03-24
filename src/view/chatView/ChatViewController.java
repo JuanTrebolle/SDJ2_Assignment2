@@ -1,6 +1,7 @@
 package view.chatView;
 
 import core.ViewHandler;
+import core.ViewModelFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -22,16 +23,12 @@ public class ChatViewController
   private Region root;
 
 
-  public void init(ViewHandler viewHandler, Object mainViewModel)
+  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
   {
     this.viewHandler = viewHandler;
-    this.chatViewModel = chatViewModel;
+    this.chatViewModel = viewModelFactory.getChatViewModel();
     idInputMessage.textProperty().bind(chatViewModel.getUserMessage());
     idOutputMessage.textProperty().bind(chatViewModel.getPoolMessages());
-  }
-
-  public ChatViewController()
-  {
   }
 
   public void OnSendMessage(ActionEvent actionEvent)
@@ -41,10 +38,11 @@ public class ChatViewController
 
   public void OnLogOut(ActionEvent actionEvent)
   {
+    System.exit(0);
   }
 
   public void OnUsers(ActionEvent actionEvent)
   {
-
+    viewHandler.openUserView();
   }
 }

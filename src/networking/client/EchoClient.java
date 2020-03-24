@@ -1,10 +1,14 @@
 package networking.client;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class EchoClient {
+public class EchoClient implements Client{
+
+    private PropertyChangeSupport property = new PropertyChangeSupport(this);
 
     public void start() throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", 3120);
@@ -13,6 +17,7 @@ public class EchoClient {
         Thread thread = new Thread(handler);
         thread.setDaemon(true);
         thread.start();
+        property.firePropertyChange("UserList", null, thread);
 
         Scanner input = new Scanner(System.in);
 
@@ -30,5 +35,16 @@ public class EchoClient {
 
     public void messageReceived(String message) {
         System.out.println(message);
+        property.firePropertyChange("Message", null, message);
+    }
+
+    @Override
+    public void addListener(String name, PropertyChangeListener listener) {
+        property.addPropertyChangeListener("Message", listener);
+    }
+
+    @Override
+    public void removeListener(String name, PropertyChangeListener listener) {
+        property.removePropertyChangeListener("UserList", listener);
     }
 }

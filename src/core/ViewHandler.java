@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class ViewHandler
 {
+  private Scene chatScene;
   private Stage stage;
   private ViewModelFactory viewModelFactory;
 
@@ -21,27 +22,42 @@ public class ViewHandler
 
   public void start() throws IOException
   {
-    openView("chat");
+    stage = new Stage();
+    openChatView("chat");
   }
 
-  private void openView(String viewToOpen) throws IOException
+  private void openChatView(String viewToOpen) throws IOException
   {
-    Scene scene = null;
-    FXMLLoader loader = new FXMLLoader();
-    Parent root = null;
-
-    //loading the fxml, and opening the views without having to write View.fxml
-    loader.setLocation(getClass().getResource("../View/" + viewToOpen + "View.fxml"));
-    root = loader.load();
-    if("chat".equals(viewToOpen)){
-      ChatViewController view = loader.getController();
-      view.init(this,viewModelFactory.getChatViewModel());
+    if (chatScene == null) {
+      Parent root = loadFXML("../view/chatView/chatView.fxml");
       stage.setTitle("ChatWindow");
-      scene = new Scene(root);
-      stage.setScene(scene);
+      chatScene = new Scene(root);
+      stage.setScene(chatScene);
       stage.show();
     }
-
   }
 
+  public void openUserView() {
+    // no reusing a userListScene, because I want the userList to reload the latest every time.
+    Parent root = loadFXML("../view/userView/userView.fxml");
+    Scene userListScene = new Scene(root);
+    stage.setTitle("UserListWindow");
+    stage.setScene(userListScene);
+    stage.show();
+  }
+
+  private Parent loadFXML(String path){
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass().getResource(path));
+    Parent root = null;
+    try {
+      root = loader.load();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    ChatViewController controller = loader.getController();
+    controller.init(this, viewModelFactory);
+    return root;
+  }
 }

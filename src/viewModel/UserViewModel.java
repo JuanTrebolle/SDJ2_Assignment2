@@ -13,6 +13,6 @@ public class UserViewModel implements PropertyChangeListener
 
   @Override public void propertyChange(PropertyChangeEvent evt)
   {
-
+    //TODO Listen to the UserListModel interface
   }
 }

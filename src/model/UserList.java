@@ -1,5 +1,6 @@
 package model;
 
+import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
@@ -39,5 +40,10 @@ public class UserList implements UserListModel
   @Override public void removeListener(String name, PropertyChangeListener listener)
   {
     property.removePropertyChangeListener(listener);
+  }
+
+  @Override
+  public void propertyChange(PropertyChangeEvent evt) {
+    //TODO Listen to the client interface
   }
 }

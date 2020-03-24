@@ -23,7 +23,7 @@ public class ChatViewModel implements PropertyChangeListener
 
   @Override public void propertyChange(PropertyChangeEvent evt)
   {
-
+    //TODO Listen to the ChatModel interface
   }
 
   public StringProperty getUserMessage()
