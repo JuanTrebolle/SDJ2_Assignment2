@@ -2,9 +2,7 @@
  * Server it's only responsible for creating connections with the clients and spawning a new thread for each client
  */
 
-package Networking.server;
-
-import Networking.shared.Message;
+package networking.server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -12,7 +10,7 @@ import java.net.Socket;
 
 public class EchoServer {
     public void start() throws IOException {
-        ServerSocket welcomeSocket = new ServerSocket(2910);
+        ServerSocket welcomeSocket = new ServerSocket(3120);
         System.out.println("Server started...");
         ConnectionPool pool = new ConnectionPool();
 

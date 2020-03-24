@@ -1,17 +1,13 @@
-package Networking.client;
-
-import Networking.shared.Message;
+package networking.client;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class EchoClient {
 
     public void start() throws IOException, ClassNotFoundException {
-        Socket socket = new Socket("localhost", 2910);
+        Socket socket = new Socket("localhost", 3120);
 
         ClientSocketHandler handler = new ClientSocketHandler(socket, this);
         Thread thread = new Thread(handler);

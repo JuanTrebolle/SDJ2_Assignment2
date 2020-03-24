@@ -1,4 +1,4 @@
-package Networking.shared;
+package networking.shared;
 
 import java.io.Serializable;
 

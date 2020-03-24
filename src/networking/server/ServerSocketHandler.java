@@ -1,6 +1,6 @@
-package Networking.server;
+package networking.server;
 
-import Networking.shared.Message;
+import networking.shared.Message;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
