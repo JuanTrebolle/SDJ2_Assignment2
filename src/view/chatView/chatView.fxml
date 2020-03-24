@@ -21,7 +21,7 @@
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
                   <TextField fx:id="idInputMessage" layoutX="31.0" layoutY="19.0" prefHeight="47.0" prefWidth="312.0" />
-                  <Button layoutX="354.0" layoutY="30.0" mnemonicParsing="false" onAction="#OnSendMessage" text="Send Message" />
+                  <Button fx:id="buttonSend" layoutX="354.0" layoutY="30.0" mnemonicParsing="false" onAction="#OnSendMessage" text="Send Message" />
                   <Button layoutX="527.0" layoutY="54.0" mnemonicParsing="false" onAction="#OnLogOut" text="Log out" />
                   <Button layoutX="527.0" layoutY="18.0" mnemonicParsing="false" onAction="#OnUsers" prefHeight="25.0" prefWidth="57.0" text="Users" />
                </children>
