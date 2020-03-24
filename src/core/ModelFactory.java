@@ -1,16 +1,18 @@
 package core;
 
+import model.ChatModel;
 import model.User;
-import model.UserList;
 
 public class ModelFactory
 {
-  private User user;
-  private UserList userList;
+  public ChatModel chatModel;
 
-  public ModelFactory(User user, UserList userList)
+
+  public ChatModel getChatModel()
   {
-    this.user = user;
-    this.userList = userList;
+    if(chatModel == null){
+      chatModel = new User();
+    }
+    return chatModel;
   }
 }

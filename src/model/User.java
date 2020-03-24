@@ -9,10 +9,8 @@ public class User implements ChatModel
   private String message;
   private PropertyChangeSupport property;
 
-  public User(String userName, String message)
+  public User()
   {
-    this.userName = userName;
-    this.message = message;
     this.property = new PropertyChangeSupport(this);
   }
 
@@ -33,6 +31,11 @@ public class User implements ChatModel
 
   @Override public String toString(){
     return userName + ": " + message;
+  }
+
+  @Override public void setUserName(String userName)
+  {
+    this.userName = userName;
   }
 
   @Override public void addListener(String name, PropertyChangeListener listener)

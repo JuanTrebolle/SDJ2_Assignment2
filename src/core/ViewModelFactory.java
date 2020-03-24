@@ -15,4 +15,14 @@ public class ViewModelFactory
     this.userViewModel = userViewModel;
     this.modelFactory = modelFactory;
   }
+
+
+
+  public ChatViewModel getChatViewModel()
+  {
+    if(chatViewModel == null){
+      chatViewModel = new ChatViewModel(modelFactory.getChatModel());
+    }
+    return chatViewModel;
+  }
 }
