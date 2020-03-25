@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface ChatModel extends PropertyChangeSubject, PropertyChangeListener
 {
- String getUserName();
+ String getUserName(String userName);
  String getMessage();
  String toString();
  void setUserName(String name);

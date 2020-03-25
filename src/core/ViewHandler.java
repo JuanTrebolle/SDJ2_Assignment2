@@ -28,13 +28,13 @@ public class ViewHandler
 
   public void openChatView() throws IOException
   {
-    if (chatScene == null) {
+    //if (chatScene == null)
       Parent root = loadFXML("../view/chatView/chatView.fxml");
       stage.setTitle("ChatWindow");
       chatScene = new Scene(root);
       stage.setScene(chatScene);
       stage.show();
-    }
+
   }
 
   public void openUserView() {

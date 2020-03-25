@@ -5,8 +5,9 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
-public class UserList implements UserListModel
+public class UserList implements UserListModel, ChatModel
 {
+  private User user;
   private ArrayList<User> userList;
   private PropertyChangeSupport property;
 
@@ -43,5 +44,31 @@ public class UserList implements UserListModel
   @Override
   public void propertyChange(PropertyChangeEvent evt) {
     //TODO Listen to the client interface
+  }
+
+  @Override public String getUserName(String userName)
+  {
+    String result = "";
+    for (int i = 0; i < userList.size() ; i++)
+    {
+      if(userList.get(i).getUserName().equals(userName))
+       result = userName;
+    }
+        return userName;
+  }
+
+  @Override public String getMessage()
+  {
+    return null;
+  }
+
+  @Override public void setUserName(String name)
+  {
+
+  }
+
+  @Override public void setMessage(String message)
+  {
+
   }
 }

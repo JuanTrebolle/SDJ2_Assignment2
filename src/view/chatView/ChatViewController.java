@@ -28,7 +28,7 @@ public class ChatViewController implements ViewController
   {
     this.viewHandler = viewHandler;
     this.chatViewModel = viewModelFactory.getChatViewModel();
-    idInputMessage.textProperty().bind(chatViewModel.getUserMessage());
+  //  idInputMessage.textProperty().bind(chatViewModel.getUserMessage());
     idOutputMessage.textProperty().bind(chatViewModel.getPoolMessages());
   }
 

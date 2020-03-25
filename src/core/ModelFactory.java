@@ -15,7 +15,7 @@ public class ModelFactory
   public ChatModel getChatModel()
   {
     if(chatModel == null){
-      chatModel = new User();
+      chatModel = new UserList();
     }
     return chatModel;
   }
