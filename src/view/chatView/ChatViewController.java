@@ -8,11 +8,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import networking.client.EchoClient;
+import view.ViewController;
 import viewModel.ChatViewModel;
 
 import javax.swing.plaf.synth.Region;
 
-public class ChatViewController
+public class ChatViewController implements ViewController
 {
   @FXML private Button buttonSend;
   @FXML private TextArea idOutputMessage;

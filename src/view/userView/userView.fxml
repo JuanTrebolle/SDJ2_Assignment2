@@ -4,19 +4,33 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.TextField?>
 <AnchorPane prefHeight="400.0" prefWidth="273.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.userView.UserViewController">
     <children>
-        <VBox prefHeight="400.0" prefWidth="300.0">
-            <children>
-                <TableView fx:id="tableView" prefHeight="381.0" prefWidth="300.0">
-                    <columns>
-                        <TableColumn fx:id="inputColumn" prefWidth="299.0" text="User name" />
-                    </columns>
-                </TableView>
-                <Button mnemonicParsing="false" onAction="#onBackButton" text="Back" />
-            </children>
-        </VBox>
+      <HBox prefHeight="416.0" prefWidth="444.0">
+         <children>
+              <VBox prefHeight="400.0" prefWidth="448.0">
+                  <children>
+                      <TableView fx:id="tableView" prefHeight="296.0" prefWidth="265.0">
+                          <columns>
+                              <TableColumn fx:id="inputColumn" prefWidth="443.0" text="User name" />
+                          </columns>
+                      </TableView>
+                  <AnchorPane prefHeight="112.0" prefWidth="221.0">
+                     <children>
+                            <Button layoutX="239.0" layoutY="75.0" mnemonicParsing="false" onAction="#onBackButton" text="Back" />
+                        <Text layoutX="14.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User name" />
+                        <TextField fx:id="inputAddUser" layoutX="14.0" layoutY="42.0" />
+                        <Button layoutX="14.0" layoutY="75.0" mnemonicParsing="false" onAction="#onAddUser" text="Add user" />
+                     </children>
+                  </AnchorPane>
+                  </children>
+              </VBox>
+         </children>
+      </HBox>
     </children>
 </AnchorPane>

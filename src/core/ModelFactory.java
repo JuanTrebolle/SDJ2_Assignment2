@@ -2,10 +2,14 @@ package core;
 
 import model.ChatModel;
 import model.User;
+import model.UserList;
+import model.UserListModel;
 
 public class ModelFactory
 {
-  public ChatModel chatModel;
+  private ChatModel chatModel;
+  private UserListModel userListModel;
+
 
 
   public ChatModel getChatModel()
@@ -14,5 +18,13 @@ public class ModelFactory
       chatModel = new User();
     }
     return chatModel;
+  }
+
+  public UserListModel getUserModel()
+  {
+    if(userListModel == null){
+      userListModel = new UserList();
+    }
+    return userListModel;
   }
 }

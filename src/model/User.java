@@ -30,6 +30,7 @@ public class User implements ChatModel
     return message;
   }
 
+
   @Override public void setMessage(String message){
     this.message = message;
   }

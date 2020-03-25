@@ -6,6 +6,7 @@ import viewModel.UserViewModel;
 public class ViewModelFactory
 {
   private ChatViewModel chatViewModel;
+  private UserViewModel userViewModel;
   private ModelFactory modelFactory;
 
   public ViewModelFactory(ModelFactory modelFactory)
@@ -21,5 +22,13 @@ public class ViewModelFactory
       chatViewModel = new ChatViewModel(modelFactory.getChatModel());
     }
     return chatViewModel;
+  }
+
+  public UserViewModel getUserViewModel()
+  {
+    if(userViewModel == null){
+      userViewModel = new UserViewModel(modelFactory.getUserModel());
+    }
+    return userViewModel;
   }
 }

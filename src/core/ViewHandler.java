@@ -4,8 +4,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import view.ViewController;
 import view.chatView.ChatViewController;
-import view.userView.UserViewController;
 
 import java.io.IOException;
 
@@ -23,10 +23,10 @@ public class ViewHandler
   public void start() throws IOException
   {
     stage = new Stage();
-    openChatView("chat");
+    openChatView();
   }
 
-  private void openChatView(String viewToOpen) throws IOException
+  public void openChatView() throws IOException
   {
     if (chatScene == null) {
       Parent root = loadFXML("../view/chatView/chatView.fxml");
@@ -40,8 +40,8 @@ public class ViewHandler
   public void openUserView() {
     // no reusing a userListScene, because I want the userList to reload the latest every time.
     Parent root = loadFXML("../view/userView/userView.fxml");
-    Scene userListScene = new Scene(root);
     stage.setTitle("UserListWindow");
+    Scene userListScene = new Scene(root);
     stage.setScene(userListScene);
     stage.show();
   }
@@ -56,7 +56,7 @@ public class ViewHandler
       e.printStackTrace();
     }
 
-    ChatViewController controller = loader.getController();
+    ViewController controller = loader.getController();
     controller.init(this, viewModelFactory);
     return root;
   }

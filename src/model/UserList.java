@@ -7,15 +7,13 @@ import java.util.ArrayList;
 
 public class UserList implements UserListModel
 {
-  private User user;
   private ArrayList<User> userList;
   private PropertyChangeSupport property;
 
-  public UserList(User user, ArrayList<User> userList) {
-    this.user = user;
-    this.userList = userList;
+  public UserList() {
     this.property = new PropertyChangeSupport(this);
   }
+
 
   @Override public void addUser(User user){
     userList.add(user);

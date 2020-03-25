@@ -35,4 +35,5 @@ public class ChatViewModel implements PropertyChangeListener
   {
     return poolMessages;
   }
+
 }
