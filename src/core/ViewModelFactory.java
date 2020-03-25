@@ -6,13 +6,10 @@ import viewModel.UserViewModel;
 public class ViewModelFactory
 {
   private ChatViewModel chatViewModel;
-  private UserViewModel userViewModel;
   private ModelFactory modelFactory;
 
-  public ViewModelFactory(ChatViewModel chatViewModel, UserViewModel userViewModel, ModelFactory modelFactory)
+  public ViewModelFactory(ModelFactory modelFactory)
   {
-    this.chatViewModel = chatViewModel;
-    this.userViewModel = userViewModel;
     this.modelFactory = modelFactory;
   }
 

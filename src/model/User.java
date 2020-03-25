@@ -60,5 +60,6 @@ public class User implements ChatModel
 
   private String getChatMessage(String propertyName) {
     //TODO Listen to the client interface
+    return "";
   }
 }
