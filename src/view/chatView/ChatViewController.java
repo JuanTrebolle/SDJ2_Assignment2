@@ -29,21 +29,27 @@ public class ChatViewController implements ViewController
     this.viewHandler = viewHandler;
     this.chatViewModel = viewModelFactory.getChatViewModel();
   //  idInputMessage.textProperty().bind(chatViewModel.getUserMessage());
-    idOutputMessage.textProperty().bind(chatViewModel.getPoolMessages());
+  //  idOutputMessage.textProperty().bind(chatViewModel.getPoolMessages());
   }
 
   public void OnSendMessage(ActionEvent actionEvent)
   {
-
+    idInputMessage.getText();
+  //  idOutputMessage.textProperty().set(String.valueOf(idInputMessage));
+    addToChat(idInputMessage.getText());
+    idInputMessage.setText("");
   }
 
-  public void OnLogOut(ActionEvent actionEvent)
-  {
+  public void addToChat(String msg){
+  //  idOutputMessage.textProperty().set(msg + "\n");
+    idOutputMessage.appendText(msg + "\n");
+  }
+
+  public void OnLogOut(ActionEvent actionEvent){
     System.exit(0);
   }
 
-  public void OnUsers(ActionEvent actionEvent)
-  {
+  public void OnUsers(ActionEvent actionEvent){
     viewHandler.openUserView();
   }
 }

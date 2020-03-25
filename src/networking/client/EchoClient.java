@@ -1,5 +1,7 @@
 package networking.client;
 
+import view.chatView.ChatViewController;
+
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.io.IOException;
@@ -9,6 +11,8 @@ import java.util.Scanner;
 public class EchoClient implements Client{
 
     private PropertyChangeSupport property = new PropertyChangeSupport(this);
+    private ChatViewController chatViewController;
+
 
     public void start() throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", 3120);
@@ -22,7 +26,6 @@ public class EchoClient implements Client{
         Scanner input = new Scanner(System.in);
 
         while (true) {
-            System.out.print("Input> ");
             String arg = input.nextLine();  //Reads message from client
             handler.sendMessage(arg);   //Gives message to the handler
 
@@ -35,6 +38,7 @@ public class EchoClient implements Client{
 
     public void messageReceived(String message) {
         System.out.println(message);
+        chatViewController.addToChat(message);
         property.firePropertyChange("Message", null, message);
     }
 
