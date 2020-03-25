@@ -17,7 +17,7 @@
                   <children>
                       <TableView fx:id="tableView" prefHeight="296.0" prefWidth="265.0">
                           <columns>
-                              <TableColumn fx:id="inputColumn" prefWidth="443.0" text="User name" />
+                              <TableColumn fx:id="nameColumn" prefWidth="443.0" text="User name" />
                           </columns>
                       </TableView>
                   <AnchorPane prefHeight="112.0" prefWidth="221.0">

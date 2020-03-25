@@ -4,10 +4,8 @@ import core.ViewHandler;
 import core.ViewModelFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import networking.client.EchoClient;
 import view.ViewController;
 import viewModel.ChatViewModel;
 
@@ -15,7 +13,6 @@ import javax.swing.plaf.synth.Region;
 
 public class ChatViewController implements ViewController
 {
-  @FXML private Button buttonSend;
   @FXML private TextArea idOutputMessage;
   @FXML private TextField idInputMessage;
 
@@ -35,13 +32,11 @@ public class ChatViewController implements ViewController
   public void OnSendMessage(ActionEvent actionEvent)
   {
     idInputMessage.getText();
-  //  idOutputMessage.textProperty().set(String.valueOf(idInputMessage));
     addToChat(idInputMessage.getText());
     idInputMessage.setText("");
   }
 
   public void addToChat(String msg){
-  //  idOutputMessage.textProperty().set(msg + "\n");
     idOutputMessage.appendText(msg + "\n");
   }
 
