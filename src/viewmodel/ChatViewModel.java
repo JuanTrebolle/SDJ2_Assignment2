@@ -4,6 +4,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Model;
 
+import java.beans.PropertyChangeEvent;
+
 public class ChatViewModel //implements PropertyChangeListener
 {
   private Model userModel;
@@ -16,25 +18,20 @@ public class ChatViewModel //implements PropertyChangeListener
     this.userModel = userModel;
     this.userMessage = new SimpleStringProperty();
     this.poolMessages = new SimpleStringProperty();
-    userModel.addListener("AddUser", this::???);
+  //  userModel.addListener("Message", this::getUserMessage);
   }
 
-  /*
-  @Override public void propertyChange(PropertyChangeEvent evt)
+  public StringProperty getUserMessage(/*PropertyChangeEvent event*/)
   {
-    //TODO Listen to the ChatModel interface
-  }*/
-
-  public StringProperty getUserMessage()
-  {
-    //userMessage.setValue(userModel.getMessage());
+     //userMessage.setValue(userModel.getMessage());
     return userMessage;
   }
 
+  /*
   public StringProperty getPoolMessages()
   {
     poolMessages.setValue(getUserMessage() + "\n");
     return poolMessages;
   }
-
+*/
 }

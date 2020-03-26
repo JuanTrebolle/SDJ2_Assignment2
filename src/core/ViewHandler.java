@@ -28,7 +28,7 @@ public class ViewHandler
   public void openChatView() throws IOException
   {
     //if (chatScene == null)
-      Parent root = loadFXML("../view/chatView/chatView.fxml");
+      Parent root = loadFXML("../view/chatview/chatView.fxml");
       stage.setTitle("ChatWindow");
       chatScene = new Scene(root);
       stage.setScene(chatScene);
@@ -38,7 +38,7 @@ public class ViewHandler
 
   public void openUserView() {
     // no reusing a userListScene, because I want the userList to reload the latest every time.
-    Parent root = loadFXML("../view/userView/loginView.fxml");
+    Parent root = loadFXML("../view/loginview/loginView.fxml");
     stage.setTitle("UserListWindow");
     Scene userListScene = new Scene(root);
     stage.setScene(userListScene);

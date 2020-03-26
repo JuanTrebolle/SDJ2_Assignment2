@@ -19,6 +19,11 @@ public class UserList implements Model {
     client.addListener("RemoveUser", this::removeUser);
   }
 
+  public UserList()
+  {
+
+  }
+
   public String getMessage(PropertyChangeEvent event) {
     return client.toString();
   }
