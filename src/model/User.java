@@ -5,13 +5,13 @@ import networking.client.Client;
 
 public class User
 {
-  private String userName = "";
+  private String userName;
   private String message;
 
-  private Client client;
-
-  public User(){
-    setUserName(userName);
+  public User(String userName, String message)
+  {
+    this.userName = userName;
+    this.message = message;
   }
 
 
@@ -23,6 +23,9 @@ public class User
     return message;
   }
 
+
+
+  //delete this stuff
   public void setMessage(String message){
     this.message = message;
   }

@@ -9,13 +9,14 @@ import java.beans.PropertyChangeListener;
 
 public class ChatViewModel implements PropertyChangeListener
 {
-  private Model model;
+  private Model userModel;
   private StringProperty userMessage;
   private StringProperty poolMessages;
 
 
-  public ChatViewModel(Model model)
+  public ChatViewModel(Model userModel)
   {
+    this.userModel = userModel;
     this.userMessage = new SimpleStringProperty();
     this.poolMessages = new SimpleStringProperty();
   }
@@ -27,11 +28,13 @@ public class ChatViewModel implements PropertyChangeListener
 
   public StringProperty getUserMessage()
   {
+    userMessage.setValue(userModel.getMessage());
     return userMessage;
   }
 
   public StringProperty getPoolMessages()
   {
+    poolMessages.setValue(getUserMessage() + "\n");
     return poolMessages;
   }
 

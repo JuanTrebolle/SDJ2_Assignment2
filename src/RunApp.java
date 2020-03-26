@@ -7,6 +7,7 @@ import javafx.application.Application;
  * TODO: Make sure messages (probably also users) aren’t deleted when you exit specific views. Save messages
  * TODO: Make client interact/chat
  * TODO: Observer patterns finish ???
+ * TODO: Clean up code
  * */
 public class RunApp {
     public static void main(String[] args) {

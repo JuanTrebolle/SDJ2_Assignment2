@@ -8,12 +8,9 @@ import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 public class UserList implements Model {
-  private ArrayList<User> userList;
-  private PropertyChangeSupport property;
+  private ArrayList<User> userList = new ArrayList<>();
+  private PropertyChangeSupport property = new PropertyChangeSupport(this);  //Subject part
 
-  public UserList() {
-    this.property = new PropertyChangeSupport(this);  //Subject part
-  }
 
   @Override public void addUser(User user){
     userList.add(user);
