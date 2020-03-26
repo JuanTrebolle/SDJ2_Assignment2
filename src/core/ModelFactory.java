@@ -1,30 +1,16 @@
 package core;
 
-import model.ChatModel;
-import model.User;
-import model.UserList;
-import model.UserListModel;
+import model.*;
 
 public class ModelFactory
 {
-  private ChatModel chatModel;
-  private UserListModel userListModel;
+  private Model model;
 
-
-
-  public ChatModel getChatModel()
+  public Model getModel()
   {
-    if(chatModel == null){
-      chatModel = new UserList();
+    if(model == null){
+      model = new UserList();
     }
-    return chatModel;
-  }
-
-  public UserListModel getUserModel()
-  {
-    if(userListModel == null){
-      userListModel = new UserList();
-    }
-    return userListModel;
+    return model;
   }
 }

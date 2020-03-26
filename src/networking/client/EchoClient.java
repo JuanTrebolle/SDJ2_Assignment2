@@ -21,7 +21,7 @@ public class EchoClient implements Client{
         Thread thread = new Thread(handler);
         thread.setDaemon(true);
         thread.start();
-        property.firePropertyChange("UserList", null, thread);
+        property.firePropertyChange("NewUser", null, thread);  //Fires when the client connects
 
         Scanner input = new Scanner(System.in);
 
@@ -39,16 +39,16 @@ public class EchoClient implements Client{
     public void messageReceived(String message) {
         System.out.println(message);
         chatViewController.addToChat(message);
-        property.firePropertyChange("Message", null, message);
+        property.firePropertyChange("Message", null, message);  //Fires when the client receives a message from the server
     }
 
     @Override
     public void addListener(String name, PropertyChangeListener listener) {
-        property.addPropertyChangeListener("Message", listener);
+        property.addPropertyChangeListener(name, listener);
     }
 
     @Override
     public void removeListener(String name, PropertyChangeListener listener) {
-        property.removePropertyChangeListener("UserList", listener);
+        property.removePropertyChangeListener(name, listener);
     }
 }

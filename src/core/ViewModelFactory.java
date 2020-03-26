@@ -19,7 +19,7 @@ public class ViewModelFactory
   public ChatViewModel getChatViewModel()
   {
     if(chatViewModel == null){
-      chatViewModel = new ChatViewModel(modelFactory.getChatModel());
+      chatViewModel = new ChatViewModel(modelFactory.getModel());
     }
     return chatViewModel;
   }
@@ -27,7 +27,7 @@ public class ViewModelFactory
   public UserViewModel getUserViewModel()
   {
     if(userViewModel == null){
-      userViewModel = new UserViewModel(modelFactory.getUserModel());
+      userViewModel = new UserViewModel(modelFactory.getModel());
     }
     return userViewModel;
   }

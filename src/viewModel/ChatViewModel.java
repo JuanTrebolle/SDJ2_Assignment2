@@ -2,20 +2,19 @@ package viewModel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ObservableValue;
-import model.ChatModel;
+import model.Model;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
 public class ChatViewModel implements PropertyChangeListener
 {
-  private ChatModel chatModel;
+  private Model model;
   private StringProperty userMessage;
   private StringProperty poolMessages;
 
 
-  public ChatViewModel(ChatModel chatModel)
+  public ChatViewModel(Model model)
   {
     this.userMessage = new SimpleStringProperty();
     this.poolMessages = new SimpleStringProperty();

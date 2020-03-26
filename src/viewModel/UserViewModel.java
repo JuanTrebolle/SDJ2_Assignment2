@@ -2,9 +2,8 @@ package viewModel;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.ChatModel;
+import model.Model;
 import model.User;
-import model.UserListModel;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -12,17 +11,16 @@ import java.util.List;
 
 public class UserViewModel implements PropertyChangeListener
 {
-  private UserListModel userListModel;
+  private Model userModel;
   private ObservableList<User> users;
-  private ChatModel chatModel;
 
-  public UserViewModel(UserListModel userModel)
+  public UserViewModel(Model model)
   {
 
   }
 
   public void loadUsers(){
-    List<User> nameList = userListModel.getUserList();
+    List<User> nameList = userModel.getUserList();
     users = FXCollections.observableArrayList(nameList);
   }
   

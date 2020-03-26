@@ -35,8 +35,8 @@ public class User
     this.userName = userName;
   }
 
+  /*
   private String getChatMessage(String propertyName) {
-    //TODO Listen to the client interface
     return "";
-  }
+  }*/
 }
