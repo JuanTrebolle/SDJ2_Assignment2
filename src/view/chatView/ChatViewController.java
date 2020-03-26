@@ -18,15 +18,15 @@ public class ChatViewController implements ViewController
 
   private ChatViewModel chatViewModel;
   private ViewHandler viewHandler;
-  private Region root;
+
 
 
   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
   {
     this.viewHandler = viewHandler;
     this.chatViewModel = viewModelFactory.getChatViewModel();
- // idInputMessage.textProperty().bind(chatViewModel.getUserMessage());
-  //idOutputMessage.textProperty().bind(chatViewModel.getPoolMessages());
+  idInputMessage.textProperty().bindBidirectional(chatViewModel.getUserMessage());
+  //idOutputMessage.textProperty().bindBidirectional(chatViewModel.getPoolMessages());
   }
 
   public void OnSendMessage(ActionEvent actionEvent)
@@ -38,6 +38,7 @@ public class ChatViewController implements ViewController
 
   public void addToChat(String msg){
     idOutputMessage.appendText(msg + "\n");
+  //  idOutputMessage.textProperty().bindBidirectional(chatViewModel.getPoolMessages());
   }
 
   public void OnLogOut(ActionEvent actionEvent){
