@@ -19,12 +19,14 @@ public class ChatViewModel implements PropertyChangeListener
     this.userModel = userModel;
     this.userMessage = new SimpleStringProperty();
     this.poolMessages = new SimpleStringProperty();
+    userModel.addListener("AddUser", this::);
   }
 
+  /*
   @Override public void propertyChange(PropertyChangeEvent evt)
   {
     //TODO Listen to the ChatModel interface
-  }
+  }*/
 
   public StringProperty getUserMessage()
   {
