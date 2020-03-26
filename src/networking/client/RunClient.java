@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class RunClient {
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        EchoClient ec = new EchoClient();
+        SocketClient ec = new SocketClient();
         ec.start();
     }
 }

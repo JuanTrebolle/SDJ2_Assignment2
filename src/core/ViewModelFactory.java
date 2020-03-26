@@ -1,12 +1,12 @@
 package core;
 
-import viewModel.ChatViewModel;
-import viewModel.UserViewModel;
+import viewmodel.ChatViewModel;
+import viewmodel.LoginViewModel;
 
 public class ViewModelFactory
 {
   private ChatViewModel chatViewModel;
-  private UserViewModel userViewModel;
+  private LoginViewModel userViewModel;
   private ModelFactory modelFactory;
 
   public ViewModelFactory(ModelFactory modelFactory)
@@ -24,10 +24,10 @@ public class ViewModelFactory
     return chatViewModel;
   }
 
-  public UserViewModel getUserViewModel()
+  public LoginViewModel getUserViewModel()
   {
     if(userViewModel == null){
-      userViewModel = new UserViewModel(modelFactory.getModel());
+      userViewModel = new LoginViewModel(modelFactory.getModel());
     }
     return userViewModel;
   }

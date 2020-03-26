@@ -1,6 +1,6 @@
 package networking.client;
 
-import view.chatView.ChatViewController;
+import view.chatview.ChatViewController;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class EchoClient implements Client{
+public class SocketClient implements Client{
 
     private PropertyChangeSupport property = new PropertyChangeSupport(this);
     private ChatViewController chatViewController;

@@ -1,4 +1,4 @@
-package view.chatView;
+package view.chatview;
 
 import core.ViewHandler;
 import core.ViewModelFactory;
@@ -7,9 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import view.ViewController;
-import viewModel.ChatViewModel;
-
-import javax.swing.plaf.synth.Region;
+import viewmodel.ChatViewModel;
 
 public class ChatViewController implements ViewController
 {

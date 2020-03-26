@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import view.ViewController;
-import view.chatView.ChatViewController;
 
 import java.io.IOException;
 
@@ -39,7 +38,7 @@ public class ViewHandler
 
   public void openUserView() {
     // no reusing a userListScene, because I want the userList to reload the latest every time.
-    Parent root = loadFXML("../view/userView/userView.fxml");
+    Parent root = loadFXML("../view/userView/loginView.fxml");
     stage.setTitle("UserListWindow");
     Scene userListScene = new Scene(root);
     stage.setScene(userListScene);

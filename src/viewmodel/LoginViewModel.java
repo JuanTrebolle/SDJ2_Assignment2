@@ -1,4 +1,4 @@
-package viewModel;
+package viewmodel;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,12 +9,12 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
 
-public class UserViewModel implements PropertyChangeListener
+public class LoginViewModel implements PropertyChangeListener
 {
   private Model userModel;
   private ObservableList<User> users;
 
-  public UserViewModel(Model model)
+  public LoginViewModel(Model model)
   {
 
   }

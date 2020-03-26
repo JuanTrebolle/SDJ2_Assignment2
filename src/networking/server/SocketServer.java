@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class EchoServer {
+public class SocketServer {
     public void start() throws IOException {
         ServerSocket welcomeSocket = new ServerSocket(3120);
         System.out.println("Server started...");

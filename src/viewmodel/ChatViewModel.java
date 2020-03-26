@@ -1,11 +1,8 @@
-package viewModel;
+package viewmodel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Model;
-
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 
 public class ChatViewModel //implements PropertyChangeListener
 {

@@ -1,4 +1,4 @@
-package view.userView;
+package view.loginview;
 
 import core.ViewHandler;
 import core.ViewModelFactory;
@@ -10,18 +10,18 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.User;
 import view.ViewController;
-import viewModel.UserViewModel;
+import viewmodel.LoginViewModel;
 
 import javax.swing.plaf.synth.Region;
 import java.io.IOException;
 
-public class UserViewController implements ViewController
+public class LoginViewController implements ViewController
 {
   @FXML private TableView tableView;
   @FXML private  TableColumn<String, User> nameColumn;
   @FXML private  TextField inputAddUser;
 
-  private UserViewModel userViewModel;
+  private LoginViewModel userViewModel;
   private ViewHandler viewHandler;
   private Region root;
 

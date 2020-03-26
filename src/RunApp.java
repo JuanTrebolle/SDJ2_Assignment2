@@ -8,6 +8,16 @@ import javafx.application.Application;
  * TODO: Make client interact/chat
  * TODO: Observer patterns finish ???
  * TODO: Clean up code
+ * TODO Troels:
+ *      - FINISHED toString() in Model interface
+ *      - Confusion because of implementing the Listener interface instead of anonymous implementation
+ *      - FINISHED Model is set up correctly as Subject
+ *      - FINISHED I don't understand UserList::getUserName(), it just returns the argument again?
+ *      - FINISHED Rename EchoServer
+ *      - FINISHED Rename userView to loginView
+ *      - FINISHED name packages with lowercase
+ *      - Focus on 1 feature at a time.
+ *      - DET MESTE SER UD TIL AT VAERE PA DEN RIGTIGE VEJ!!!
  * */
 public class RunApp {
     public static void main(String[] args) {

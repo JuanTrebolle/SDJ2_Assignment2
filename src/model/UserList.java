@@ -33,16 +33,6 @@ public class UserList implements Model {
     property.firePropertyChange(event); //fires property when a user is added
   }
 
-  /*@Override public void addUser(User user, PropertyChangeEvent evt){
-    userList.add(user);
-    property.firePropertyChange("AddUser", null, user); //fires property when a user is added
-  }
-
-  @Override public void removeUser(User user){
-    userList.remove(user);
-    property.firePropertyChange("RemoveUser", null, user);  //fires property when a user is removed
-  }*/
-
   @Override public ArrayList<User> getUserList()
   {
     return userList;
@@ -58,36 +48,16 @@ public class UserList implements Model {
     property.removePropertyChangeListener(name, listener);
   }
 
-  /*
-  @Override
-  public void propertyChange(PropertyChangeEvent evt) {
-    addUser((PropertyChangeEvent) evt.getNewValue());
-    removeUser((PropertyChangeEvent) evt.getNewValue());
-  }*/
-
-
   @Override public String getUserName(String userName)
   {
     String result = "";
     for (int i = 0; i < userList.size() ; i++)
     {
       if(userList.get(i).getUserName().equals(userName))
-       result = userName;
+       result = userList.get(i).getUserName();
     }
     return result;
   }
-
-  /*
-  @Override public String getMessage(String userName, PropertyChangeEvent event)
-  {
-    String result = "";
-    for (User user : userList) {
-      if (user.getUserName().equals(userName)){
-        result = user.getMessage();
-      }
-    }
-    return result;
-  }*/
 
   @Override public void setUserName(String name)
   {

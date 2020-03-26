@@ -10,11 +10,11 @@ import java.net.Socket;
 public class ClientSocketHandler implements Runnable{
 
     private Socket socket;
-    private EchoClient client;
+    private SocketClient client;
     private ObjectInputStream inFromServer;
     private ObjectOutputStream outToServer;
 
-    public ClientSocketHandler(Socket socket, EchoClient client) {
+    public ClientSocketHandler(Socket socket, SocketClient client) {
         this.socket = socket;
         this.client = client;
         //Create communication streams
