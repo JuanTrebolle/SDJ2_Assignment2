@@ -1,7 +1,6 @@
 package model;
 
 import networking.client.Client;
-import utility.PropertyChangeSubject;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
@@ -16,7 +15,12 @@ public class UserList implements Model {
   public UserList(Client client){
     this.client = client;
     client.addListener("NewUser", this::addUser);
+    client.addListener("Message", this::getMessage);
     client.addListener("RemoveUser", this::removeUser);
+  }
+
+  public String getMessage(PropertyChangeEvent event) {
+    return client.toString();
   }
 
   @Override
@@ -73,10 +77,17 @@ public class UserList implements Model {
     return result;
   }
 
-  @Override public String getMessage()
+  /*
+  @Override public String getMessage(String userName, PropertyChangeEvent event)
   {
-    return null;
-  }
+    String result = "";
+    for (User user : userList) {
+      if (user.getUserName().equals(userName)){
+        result = user.getMessage();
+      }
+    }
+    return result;
+  }*/
 
   @Override public void setUserName(String name)
   {

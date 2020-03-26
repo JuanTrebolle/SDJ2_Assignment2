@@ -7,4 +7,5 @@ import java.io.IOException;
 public interface Client extends PropertyChangeSubject {
     void start() throws IOException, ClassNotFoundException;
     void messageReceived(String message);
+    String toString();
 }

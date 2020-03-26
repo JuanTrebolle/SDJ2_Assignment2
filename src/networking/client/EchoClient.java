@@ -38,7 +38,7 @@ public class EchoClient implements Client{
 
     public void messageReceived(String message) {
         System.out.println(message);
-        chatViewController.addToChat(message);
+        //chatViewController.addToChat(message);
         property.firePropertyChange("Message", null, message);  //Fires when the client receives a message from the server
     }
 

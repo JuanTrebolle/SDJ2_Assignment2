@@ -8,7 +8,8 @@ import java.util.ArrayList;
 
 public interface Model extends PropertyChangeSubject {
     String getUserName(String userName);
-    String getMessage();
+    //String getMessage(String userName, PropertyChangeEvent event);
+    String getMessage(PropertyChangeEvent event);
     String toString();
     void setUserName(String name);
     void setMessage(String message);

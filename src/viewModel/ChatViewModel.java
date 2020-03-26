@@ -7,7 +7,7 @@ import model.Model;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 
-public class ChatViewModel implements PropertyChangeListener
+public class ChatViewModel //implements PropertyChangeListener
 {
   private Model userModel;
   private StringProperty userMessage;
@@ -19,7 +19,7 @@ public class ChatViewModel implements PropertyChangeListener
     this.userModel = userModel;
     this.userMessage = new SimpleStringProperty();
     this.poolMessages = new SimpleStringProperty();
-    userModel.addListener("AddUser", this::);
+    userModel.addListener("AddUser", this::???);
   }
 
   /*
@@ -30,7 +30,7 @@ public class ChatViewModel implements PropertyChangeListener
 
   public StringProperty getUserMessage()
   {
-    userMessage.setValue(userModel.getMessage());
+    //userMessage.setValue(userModel.getMessage());
     return userMessage;
   }
 
