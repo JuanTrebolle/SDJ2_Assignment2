@@ -1,8 +1,5 @@
 package model;
 
-import networking.client.Client;
-
-
 public class User
 {
   private String userName;
@@ -22,8 +19,6 @@ public class User
   public String getMessage(){
     return message;
   }
-
-
 
   //delete this stuff
   public void setMessage(String message){

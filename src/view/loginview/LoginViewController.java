@@ -13,6 +13,7 @@ import view.ViewController;
 import viewmodel.LoginViewModel;
 
 import javax.swing.plaf.synth.Region;
+import javax.swing.text.html.parser.Parser;
 import java.io.IOException;
 
 public class LoginViewController implements ViewController
@@ -42,12 +43,15 @@ public class LoginViewController implements ViewController
   public void onAddUser(ActionEvent actionEvent)
   {
     inputAddUser.getText();
+ //   addUserToColumn();
     inputAddUser.setText("");
   }
 
-  public void addUserToLog(String usrname){
-
+  public void addUserToColumn(String username){
+    tableView.getItems().add(username);
+    nameColumn.setCellValueFactory(new PropertyValueFactory<>("users"));
   }
+
 
 
 }
