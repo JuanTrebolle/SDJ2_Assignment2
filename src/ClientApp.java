@@ -4,7 +4,7 @@ import core.ViewModelFactory;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class ChatApp extends Application {
+public class ClientApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         ModelFactory mf = new ModelFactory();

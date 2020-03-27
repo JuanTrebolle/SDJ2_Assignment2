@@ -6,8 +6,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import networking.client.SocketClient;
 import view.ViewController;
 import viewmodel.ChatViewModel;
+
+import java.io.IOException;
 
 public class ChatViewController implements ViewController
 {
@@ -17,7 +20,11 @@ public class ChatViewController implements ViewController
   private ChatViewModel chatViewModel;
   private ViewHandler viewHandler;
 
+  private SocketClient client = new SocketClient(this);
 
+  public ChatViewController() throws IOException
+  {
+  }
 
   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
   {
@@ -29,9 +36,11 @@ public class ChatViewController implements ViewController
 
   public void OnSendMessage(ActionEvent actionEvent)
   {
-    idInputMessage.getText();
-    addToChat(idInputMessage.getText());
+    client.sendMessage(idInputMessage.getText());
     idInputMessage.setText("");
+
+  /*  idInputMessage.getText();
+    addToChat(idInputMessage.getText());*/
   }
 
   public void addToChat(String msg){

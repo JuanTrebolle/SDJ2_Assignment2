@@ -32,7 +32,7 @@ public class ServerSocketHandler implements Runnable{
         try {
             while (true) {
                 Message readFromClient = (Message) inFromClient.readObject();
-                System.out.println("Received: " + readFromClient);
+                System.out.println("Received: " + readFromClient.getMessage());
 
                 if (readFromClient.getMessage().equals("exit")) {
                     pool.removeHandler(this);

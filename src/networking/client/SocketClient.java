@@ -10,12 +10,26 @@ import java.util.Scanner;
 
 public class SocketClient implements Client{
 
-    private PropertyChangeSupport property = new PropertyChangeSupport(this);
+ //   private PropertyChangeSupport property = new PropertyChangeSupport(this);
     private ChatViewController chatViewController;
+    private ClientSocketHandler handler;
 
+    public SocketClient(ChatViewController chatViewController)
+        throws IOException
+    {
+        Socket socket = new Socket("localhost", 3120);
 
+        this.chatViewController = chatViewController;
+        this.handler = new ClientSocketHandler(socket,this);
+        Thread t = new Thread(handler);
+        t.setDaemon(true);
+        t.start();
+    }
+
+    /*
     public void start() throws IOException, ClassNotFoundException {
         Socket socket = new Socket("localhost", 3120);
+
 
         ClientSocketHandler handler = new ClientSocketHandler(socket, this);
         Thread thread = new Thread(handler);
@@ -34,14 +48,20 @@ public class SocketClient implements Client{
                 break;
             }
         }
-    }
+    }*/
 
     public void messageReceived(String message) {
         System.out.println(message);
+        chatViewController.addToChat(message);
         //chatViewController.addToChat(message);
-        property.firePropertyChange("Message", null, message);  //Fires when the client receives a message from the server
+     //   property.firePropertyChange("Message", null, message);  //Fires when the client receives a message from the server
     }
 
+    @Override public void sendMessage(String message)
+    {
+        handler.sendMessage(message);
+    }
+/*
     @Override
     public void addListener(String name, PropertyChangeListener listener) {
         property.addPropertyChangeListener(name, listener);
@@ -50,5 +70,5 @@ public class SocketClient implements Client{
     @Override
     public void removeListener(String name, PropertyChangeListener listener) {
         property.removePropertyChangeListener(name, listener);
-    }
+    }*/
 }

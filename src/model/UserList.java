@@ -14,9 +14,9 @@ public class UserList implements Model {
 
   public UserList(Client client){
     this.client = client;
-    client.addListener("NewUser", this::addUser);
+   /* client.addListener("NewUser", this::addUser);
     client.addListener("Message", this::getMessage);
-    client.addListener("RemoveUser", this::removeUser);
+    client.addListener("RemoveUser", this::removeUser);*/
   }
 
   public UserList()
