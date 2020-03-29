@@ -6,7 +6,7 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 
-public interface Model extends PropertyChangeSubject {
+public interface Model extends PropertyChangeSubject, PropertyChangeListener{
     String getUserName(String userName);
     //String getMessage(String userName, PropertyChangeEvent event);
     String getMessage(PropertyChangeEvent event);
@@ -17,4 +17,6 @@ public interface Model extends PropertyChangeSubject {
     ArrayList<User> getUserList();
     void addUser(PropertyChangeEvent event);
     void removeUser(PropertyChangeEvent event);
+
+    void login(String username, String password);
 }

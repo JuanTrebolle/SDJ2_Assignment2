@@ -1,14 +1,18 @@
 package model;
 
-public class User
+import java.io.Serializable;
+
+public class User implements Serializable
 {
   private String userName;
+  private String password;
   private String message;
 
-  public User(String userName, String message)
+  public User(String userName, /*String message,*/ String password)
   {
     this.userName = userName;
-    this.message = message;
+    //this.message = message;
+    this.password = password;
   }
 
 
@@ -26,11 +30,15 @@ public class User
   }
 
   public String toString(){
-    return userName + ": " + message;
+    return "User(" + userName + ", " + password;
   }
 
   public void setUserName(String userName){
     this.userName = userName;
+  }
+
+  public String getPassword() {
+    return password;
   }
 
   /*

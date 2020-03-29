@@ -1,9 +1,11 @@
 package networking.client;
 
 import core.ViewHandler;
+import model.User;
 import view.chatview.ChatViewController;
 import view.userlogview.userLogViewController;
 
+import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -63,5 +65,20 @@ public class SocketClient implements Client{
     @Override public void sendMessage(String message)
     {
         handler.sendMessage(message);
+    }
+
+    @Override
+    public void login(User user) {
+
+    }
+
+    @Override
+    public void addListener(String name, PropertyChangeListener listener) {
+
+    }
+
+    @Override
+    public void removeListener(String name, PropertyChangeListener listener) {
+
     }
 }

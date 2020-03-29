@@ -2,6 +2,8 @@ package view.loginview;
 
 import core.ViewHandler;
 import core.ViewModelFactory;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import networking.client.SocketClient;
@@ -13,8 +15,9 @@ import java.net.Socket;
 
 public class logInController
 {
-  @FXML public javafx.scene.control.TextField usernameTextField;
-  @FXML public javafx.scene.control.TextField passwordTextField;
+  @FXML private javafx.scene.control.Label loginResultLabel;
+  @FXML private javafx.scene.control.TextField usernameTextField;
+  @FXML private javafx.scene.control.TextField passwordTextField;
 
   private ViewHandler viewHandler;
   protected LogInViewModel logInViewModel;
@@ -24,10 +27,20 @@ public class logInController
   {
   }
 
-  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
+  public void init(LogInViewModel logInViewModel)
   {
+    this.logInViewModel = logInViewModel;
     this.viewHandler = viewHandler;
-    this.logInViewModel = viewModelFactory.getLogInViewModel();
+    usernameTextField.textProperty().bindBidirectional(logInViewModel.usernameProperty());
+    passwordTextField.textProperty().bindBidirectional(logInViewModel.passwordProperty());
+    loginResultLabel.textProperty().bindBidirectional(logInViewModel.loginResponseProperty());
+    logInViewModel.loginResponseProperty().addListener((observableValue, s, t1) -> onLoginResult(t1));
+  }
+
+  private void onLoginResult(String t1) {
+    if ("OK".equals(t1)){
+      System.out.println("Swap to chat view");
+    }
   }
 
   public void onRegisterButton(ActionEvent actionEvent)
@@ -37,6 +50,6 @@ public class logInController
 
   public void onLogInButton(ActionEvent actionEvent)
   {
-    System.out.println("Log in  pressed");
+   logInViewModel.login();
   }
 }
