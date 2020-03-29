@@ -1,18 +1,19 @@
 package networking.client;
 
+import core.ViewHandler;
 import view.chatview.ChatViewController;
+import view.userlogview.userLogViewController;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class SocketClient implements Client{
 
  //   private PropertyChangeSupport property = new PropertyChangeSupport(this);
     private ChatViewController chatViewController;
+    private userLogViewController loginViewController;
     private ClientSocketHandler handler;
+
 
     public SocketClient(ChatViewController chatViewController)
         throws IOException
@@ -25,6 +26,8 @@ public class SocketClient implements Client{
         t.setDaemon(true);
         t.start();
     }
+
+
 
     /*
     public void start() throws IOException, ClassNotFoundException {
@@ -61,14 +64,4 @@ public class SocketClient implements Client{
     {
         handler.sendMessage(message);
     }
-/*
-    @Override
-    public void addListener(String name, PropertyChangeListener listener) {
-        property.addPropertyChangeListener(name, listener);
-    }
-
-    @Override
-    public void removeListener(String name, PropertyChangeListener listener) {
-        property.removePropertyChangeListener(name, listener);
-    }*/
 }

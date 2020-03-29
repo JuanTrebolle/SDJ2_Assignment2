@@ -1,12 +1,14 @@
 package core;
 
 import viewmodel.ChatViewModel;
-import viewmodel.LoginViewModel;
+import viewmodel.LogInViewModel;
+import viewmodel.UserLogViewModel;
 
 public class ViewModelFactory
 {
   private ChatViewModel chatViewModel;
-  private LoginViewModel userViewModel;
+  private UserLogViewModel userViewModel;
+  private LogInViewModel logInViewModel;
   private ModelFactory modelFactory;
 
   public ViewModelFactory(ModelFactory modelFactory)
@@ -14,21 +16,30 @@ public class ViewModelFactory
     this.modelFactory = modelFactory;
   }
 
-
-
   public ChatViewModel getChatViewModel()
   {
-    if(chatViewModel == null){
+    if (chatViewModel == null)
+    {
       chatViewModel = new ChatViewModel(modelFactory.getModel());
     }
     return chatViewModel;
   }
 
-  public LoginViewModel getUserViewModel()
+  public UserLogViewModel getUserViewModel()
   {
-    if(userViewModel == null){
-      userViewModel = new LoginViewModel(modelFactory.getModel());
+    if (userViewModel == null)
+    {
+      userViewModel = new UserLogViewModel(modelFactory.getModel());
     }
     return userViewModel;
+  }
+
+  public LogInViewModel getLogInViewModel()
+  {
+    if (logInViewModel == null)
+    {
+      logInViewModel = new LogInViewModel(modelFactory.getModel());
+    }
+    return logInViewModel;
   }
 }

@@ -9,12 +9,12 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
 
-public class LoginViewModel implements PropertyChangeListener
+public class UserLogViewModel implements PropertyChangeListener
 {
   private Model userModel;
   private ObservableList<User> users;
 
-  public LoginViewModel(Model model)
+  public UserLogViewModel(Model model)
   {
 
   }

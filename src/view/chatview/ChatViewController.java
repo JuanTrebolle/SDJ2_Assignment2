@@ -38,14 +38,10 @@ public class ChatViewController implements ViewController
   {
     client.sendMessage(idInputMessage.getText());
     idInputMessage.setText("");
-
-  /*  idInputMessage.getText();
-    addToChat(idInputMessage.getText());*/
   }
 
   public void addToChat(String msg){
     idOutputMessage.appendText(msg + "\n");
-  //  idOutputMessage.textProperty().bindBidirectional(chatViewModel.getPoolMessages());
   }
 
   public void OnLogOut(ActionEvent actionEvent){
@@ -54,5 +50,6 @@ public class ChatViewController implements ViewController
 
   public void OnUsers(ActionEvent actionEvent){
     viewHandler.openUserView();
+  //  viewHandler.openLogInView();
   }
 }
