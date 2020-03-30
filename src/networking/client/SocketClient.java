@@ -20,7 +20,7 @@ public class SocketClient implements Client{
     public SocketClient(ChatViewController chatViewController)
         throws IOException
     {
-        Socket socket = new Socket("localhost", 3120);
+        Socket socket = new Socket("localhost", 3121);
 
         this.chatViewController = chatViewController;
         this.handler = new ClientSocketHandler(socket,this);

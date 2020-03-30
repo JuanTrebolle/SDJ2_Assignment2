@@ -37,6 +37,7 @@ public class ViewHandler
 
   public void openLogInView(){
     Parent root = loadFXML("../view/loginview/logIn.fxml");
+ //   Parent root = loadFXML("../view/loginview/logIn.fxml");
     stage.setTitle("Log In Window");
     Scene logInScene = new Scene(root);
     stage.setScene(logInScene);

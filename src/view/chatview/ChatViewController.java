@@ -52,4 +52,8 @@ public class ChatViewController implements ViewController
     viewHandler.openUserView();
   //  viewHandler.openLogInView();
   }
+
+  public void onLogin(ActionEvent actionEvent) {
+    viewHandler.openLogInView();
+  }
 }
