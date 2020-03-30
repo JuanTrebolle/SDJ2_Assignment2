@@ -7,29 +7,29 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import networking.client.SocketClient;
+import view.ViewController;
 import viewmodel.LogInViewModel;
 
 import java.awt.*;
 import java.io.IOException;
 import java.net.Socket;
 
-public class logInController
+public class logInController implements ViewController
 {
   @FXML private javafx.scene.control.Label loginResultLabel;
   @FXML private javafx.scene.control.TextField usernameTextField;
   @FXML private javafx.scene.control.TextField passwordTextField;
 
   private ViewHandler viewHandler;
-  protected LogInViewModel logInViewModel;
-  //private SocketClient client = new SocketClient(this);
+  private LogInViewModel logInViewModel;
 
   public logInController() throws IOException
   {
   }
 
-  public void init(LogInViewModel logInViewModel)
+  public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
   {
-    this.logInViewModel = logInViewModel;
+    this.logInViewModel = viewModelFactory.getLogInViewModel();
     this.viewHandler = viewHandler;
     usernameTextField.textProperty().bindBidirectional(logInViewModel.usernameProperty());
     passwordTextField.textProperty().bindBidirectional(logInViewModel.passwordProperty());
