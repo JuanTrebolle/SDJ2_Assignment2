@@ -10,4 +10,5 @@ public interface Client extends PropertyChangeSubject {
     void messageReceived(String message);
     void sendMessage(String message);
     void login(User user);
+    void setUserName(String username);
 }

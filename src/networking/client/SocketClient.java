@@ -15,6 +15,7 @@ public class SocketClient implements Client{
     private ChatViewController chatViewController;
     private userLogViewController loginViewController;
     private ClientSocketHandler handler;
+    private User user;
 
 
     public SocketClient(ChatViewController chatViewController)
@@ -72,7 +73,12 @@ public class SocketClient implements Client{
 
     }
 
-    @Override
+  @Override public void setUserName(String username)
+  {
+    this.user.setUserName(username);
+  }
+
+  @Override
     public void addListener(String name, PropertyChangeListener listener) {
 
     }
