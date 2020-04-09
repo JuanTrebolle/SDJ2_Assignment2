@@ -22,7 +22,8 @@ public class ViewHandler
   public void start() throws IOException
   {
     stage = new Stage();
-    openChatView();
+    openLogInView();
+    //openChatView();
   }
 
   public void openChatView() throws IOException

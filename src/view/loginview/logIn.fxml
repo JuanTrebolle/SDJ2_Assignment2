@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -10,16 +11,16 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.loginview.logInController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="144.0" prefWidth="343.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.loginview.logInController">
 
    <children>
       <VBox>
          <children>
-            <Label prefHeight="17.0" prefWidth="182.0" text="                                         Log in" />
+            <Label prefHeight="22.0" prefWidth="295.0" text="                                                       Log in" />
             <GridPane prefHeight="150.0" prefWidth="300.0">
               <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="62.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="238.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="75.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="253.0" minWidth="10.0" prefWidth="225.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -28,17 +29,19 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="Username" />
-                  <Label text="Password" GridPane.rowIndex="1" />
-                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#onRegisterButton" text="Register" />
-                        <Button mnemonicParsing="false" onAction="#onLogInButton" text="Log in" />
-                     </children>
-                  </HBox>
-                  <TextField fx:id="usernameTextField" GridPane.columnIndex="1" />
+                  <Label text="Username">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding></Label>
+                  <Label text="Password" GridPane.rowIndex="1">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding></Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="usernameTextField" prefHeight="27.0" prefWidth="219.0" GridPane.columnIndex="1" />
                   <TextField fx:id="passwordTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Label fx:id="loginResultLabel" prefHeight="17.0" prefWidth="233.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#onLogInButton" text="Log in" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children>

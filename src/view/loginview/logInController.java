@@ -43,13 +43,8 @@ public class logInController implements ViewController
     }
   }
 
-  public void onRegisterButton(ActionEvent actionEvent)
-  {
-    System.out.println("Register pressed");
-  }
-
-  public void onLogInButton(ActionEvent actionEvent)
-  {
+  public void onLogInButton(ActionEvent actionEvent) throws IOException {
    logInViewModel.login();
+   viewHandler.openChatView();
   }
 }
