@@ -41,6 +41,11 @@ public class LogInViewModel
     userModel.login(username.get(), password.get());
   }
 
+  public void onLogin()
+  {
+
+  }
+
   public StringProperty loginResponseProperty() {
     return loginResponse;
   }
