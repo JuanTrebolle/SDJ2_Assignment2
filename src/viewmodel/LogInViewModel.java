@@ -3,50 +3,24 @@ package viewmodel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Model;
-import networking.shared.EventType;
-
-import java.beans.PropertyChangeEvent;
 
 public class LogInViewModel
 {
   private Model userModel;
-  private StringProperty username, password, loginResponse;
+  private StringProperty username;
 
   public LogInViewModel(Model userModel)
   {
     this.userModel = userModel;
-    username = new SimpleStringProperty();
-    password = new SimpleStringProperty();
-    loginResponse = new SimpleStringProperty();
-    userModel.addListener(EventType.LOGIN_RESULT.toString(), this::onLoginResponse);
-  }
-
-  private void onLoginResponse(PropertyChangeEvent event) {
-    String result = (String) event.getNewValue();
-    loginResponse.set(result);
-    System.out.println("VM, response: " + loginResponse.get());
+    this.username = new SimpleStringProperty();
   }
 
   public StringProperty usernameProperty() {
-    return username;
-  }
-
-  public StringProperty passwordProperty() {
-    return password;
+    return this.username;
   }
 
   public void login() {
-    System.out.println(username.get());
-    System.out.println(password.get());
-    userModel.login(username.get(), password.get());
-  }
-
-  public void onLogin()
-  {
-
-  }
-
-  public StringProperty loginResponseProperty() {
-    return loginResponse;
+    this.userModel.setUserName(this.username.getValue());
+    System.out.println(this.username.get());
   }
 }

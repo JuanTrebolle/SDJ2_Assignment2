@@ -10,7 +10,7 @@ import java.net.Socket;
 
 public class SocketServer {
     public void start() throws IOException {
-        ServerSocket welcomeSocket = new ServerSocket(3121);
+        ServerSocket welcomeSocket = new ServerSocket(3122);
         System.out.println("Server started...");
         ConnectionPool pool = new ConnectionPool();
 

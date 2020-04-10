@@ -17,6 +17,7 @@ public class ClientSocketHandler implements Runnable{
     public ClientSocketHandler(Socket socket, SocketClient client) {
         this.socket = socket;
         this.client = client;
+
         //Create communication streams
         try {
             outToServer = new ObjectOutputStream(socket.getOutputStream());
@@ -39,9 +40,9 @@ public class ClientSocketHandler implements Runnable{
         }
     }
 
-    public void sendMessage(String msg){
+    public void sendMessage(Message msg){
         try {
-            outToServer.writeObject(new Message(msg));
+            outToServer.writeObject(new Message(this.client.getUsername() + ": " + msg));
         } catch (IOException e) {
             e.printStackTrace();
         }

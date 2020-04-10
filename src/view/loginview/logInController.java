@@ -6,20 +6,15 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import networking.client.SocketClient;
 import view.ViewController;
 import viewmodel.LogInViewModel;
 
 import java.awt.*;
 import java.io.IOException;
-import java.net.Socket;
 
 public class logInController implements ViewController
 {
-  @FXML private javafx.scene.control.Label loginResultLabel;
   @FXML private javafx.scene.control.TextField usernameTextField;
-  @FXML private javafx.scene.control.TextField passwordTextField;
-
   private ViewHandler viewHandler;
   private LogInViewModel logInViewModel;
 
@@ -31,16 +26,7 @@ public class logInController implements ViewController
   {
     this.logInViewModel = viewModelFactory.getLogInViewModel();
     this.viewHandler = viewHandler;
-    usernameTextField.textProperty().bindBidirectional(logInViewModel.usernameProperty());
-    passwordTextField.textProperty().bindBidirectional(logInViewModel.passwordProperty());
-    loginResultLabel.textProperty().bindBidirectional(logInViewModel.loginResponseProperty());
-    logInViewModel.loginResponseProperty().addListener((observableValue, s, t1) -> onLoginResult(t1));
-  }
-
-  private void onLoginResult(String t1) {
-    if ("OK".equals(t1)){
-      System.out.println("Swap to chat view");
-    }
+    this.usernameTextField.textProperty().bindBidirectional(logInViewModel.usernameProperty());
   }
 
   public void onLogInButton(ActionEvent actionEvent) throws IOException {

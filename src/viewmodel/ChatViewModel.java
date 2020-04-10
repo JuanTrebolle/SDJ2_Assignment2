@@ -1,12 +1,15 @@
 package viewmodel;
 
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import model.Model;
+import networking.shared.Message;
 
 import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 
-public class ChatViewModel //implements PropertyChangeListener
+public class ChatViewModel implements PropertyChangeListener
 {
   private Model userModel;
   private StringProperty userMessage;
@@ -18,20 +21,33 @@ public class ChatViewModel //implements PropertyChangeListener
     this.userModel = userModel;
     this.userMessage = new SimpleStringProperty();
     this.poolMessages = new SimpleStringProperty();
-  //  userModel.addListener("Message", this::getUserMessage);
+    poolMessages.setValue("");
+    this.userModel.addListener("ToChatWindow", this);
   }
 
-  public StringProperty getUserMessage(/*PropertyChangeEvent event*/)
+  public StringProperty getUserMessageProperty()
   {
-     //userMessage.setValue(userModel.getMessage());
     return userMessage;
   }
 
-  /*
-  public StringProperty getPoolMessages()
+  @Override
+  public void propertyChange(PropertyChangeEvent evt) {
+    Platform.runLater(()->{
+      if (evt.getPropertyName().equalsIgnoreCase("ToChatWindow")){
+        this.poolMessages.setValue(this.poolMessages.getValue() + evt.getNewValue() + "\n");
+      }
+    });
+  }
+
+
+  public StringProperty getPoolMessagesProperty()
   {
-    poolMessages.setValue(getUserMessage() + "\n");
     return poolMessages;
   }
-*/
+
+  public void sendMessage() {
+    Message message = new Message(userMessage.getValue());
+    this.userModel.sendMessage(message);
+    this.userMessage.setValue("");
+  }
 }

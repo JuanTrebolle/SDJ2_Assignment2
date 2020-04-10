@@ -14,13 +14,13 @@ import java.io.IOException;
 
 public class ChatViewController implements ViewController
 {
-  @FXML private TextArea idOutputMessage;
-  @FXML private TextField idInputMessage;
+  @FXML private TextArea chatWindow;
+  @FXML private TextField userMessage;
 
   private ChatViewModel chatViewModel;
   private ViewHandler viewHandler;
 
-  private SocketClient client = new SocketClient(this);
+  //private SocketClient client = new SocketClient();
 
   public ChatViewController() throws IOException
   {
@@ -30,18 +30,19 @@ public class ChatViewController implements ViewController
   {
     this.viewHandler = viewHandler;
     this.chatViewModel = viewModelFactory.getChatViewModel();
-  idInputMessage.textProperty().bindBidirectional(chatViewModel.getUserMessage());
-  //idOutputMessage.textProperty().bindBidirectional(chatViewModel.getPoolMessages());
+    this.userMessage.textProperty().bindBidirectional(chatViewModel.getUserMessageProperty());
+    this.chatWindow.textProperty().bindBidirectional(chatViewModel.getPoolMessagesProperty());
   }
 
   public void OnSendMessage(ActionEvent actionEvent)
   {
-    client.sendMessage(idInputMessage.getText());
-    idInputMessage.setText("");
+    //client.sendMessage(userMessage.getText());
+    this.chatViewModel.sendMessage();
+    userMessage.setText("");
   }
 
   public void addToChat(String msg){
-    idOutputMessage.appendText(msg + "\n");
+    chatWindow.appendText(msg + "\n");
   }
 
   public void OnLogOut(ActionEvent actionEvent){

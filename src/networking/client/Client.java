@@ -1,14 +1,11 @@
 package networking.client;
 
-import model.User;
+import networking.shared.Message;
 import utility.PropertyChangeSubject;
 
-import java.io.IOException;
-
 public interface Client extends PropertyChangeSubject {
-//    void start() throws IOException, ClassNotFoundException;
     void messageReceived(String message);
-    void sendMessage(String message);
-    void login(User user);
-    void setUserName(String username);
+    void sendMessage(Message message);
+    String getUsername();
+    void setUsername(String username);
 }

@@ -9,7 +9,7 @@ public class ModelFactory
   public Model getModel()
   {
     if(model == null){
-      model = new UserList();
+      model = new ModelManager();
     }
     return model;
   }
