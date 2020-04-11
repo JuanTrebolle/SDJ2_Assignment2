@@ -5,3 +5,9 @@ public class RunApp {
         Application.launch(ClientApp.class);
     }
 }
+
+
+
+//TODO: Update when someone enters and leaves chat
+//TODO: Do project with RMI
+//TODO:

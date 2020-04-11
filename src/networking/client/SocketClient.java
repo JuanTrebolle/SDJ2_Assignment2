@@ -28,7 +28,6 @@ public class SocketClient implements Client{
       Thread t = new Thread(handler);
       t.setDaemon(true);
       t.start();
-      System.out.println("hey");
     }
 
     public void messageReceived(String message) {

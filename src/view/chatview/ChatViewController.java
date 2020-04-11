@@ -48,10 +48,6 @@ public class ChatViewController implements ViewController
     System.exit(0);
   }
 
-  public void OnUsers(ActionEvent actionEvent) throws IOException
-  {
-    viewHandler.openUserView();
-  }
 
   public void onLogin(ActionEvent actionEvent) throws IOException
   {
