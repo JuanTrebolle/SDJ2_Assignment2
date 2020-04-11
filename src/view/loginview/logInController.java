@@ -18,18 +18,20 @@ public class logInController implements ViewController
   private ViewHandler viewHandler;
   private LogInViewModel logInViewModel;
 
-  public logInController() throws IOException
+  public logInController()
   {
   }
 
   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
+      throws IOException
   {
     this.logInViewModel = viewModelFactory.getLogInViewModel();
     this.viewHandler = viewHandler;
     this.usernameTextField.textProperty().bindBidirectional(logInViewModel.usernameProperty());
   }
 
-  public void onLogInButton(ActionEvent actionEvent) throws IOException {
+  public void onLogInButton(ActionEvent actionEvent) throws IOException
+  {
    logInViewModel.login();
    viewHandler.openChatView();
   }

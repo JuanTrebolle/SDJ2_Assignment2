@@ -2,17 +2,19 @@ package model;
 
 import networking.client.Client;
 import networking.shared.Message;
-
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.io.IOException;
 
 public class ModelManager implements Model {
   private PropertyChangeSupport property = new PropertyChangeSupport(this);  //Subject part
   private Client client;
 
-  public ModelManager(Client client){
+  public ModelManager(Client client) throws IOException
+  {
     this.client = client;
+    this.client.startClient();
     this.client.addListener("NewMessage", this::onNewMessage);
   }
 

@@ -25,7 +25,6 @@ public class ClientSocketHandler implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
@@ -35,6 +34,7 @@ public class ClientSocketHandler implements Runnable{
                 Message message = (Message) inFromServer.readObject();
                 client.messageReceived(message.getMessage());
             }
+
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

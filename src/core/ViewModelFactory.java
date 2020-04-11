@@ -3,6 +3,8 @@ package core;
 import viewmodel.ChatViewModel;
 import viewmodel.LogInViewModel;
 
+import java.io.IOException;
+
 public class ViewModelFactory
 {
   private ChatViewModel chatViewModel;
@@ -14,7 +16,7 @@ public class ViewModelFactory
     this.modelFactory = modelFactory;
   }
 
-  public ChatViewModel getChatViewModel()
+  public ChatViewModel getChatViewModel() throws IOException
   {
     if (chatViewModel == null)
     {
@@ -23,7 +25,7 @@ public class ViewModelFactory
     return chatViewModel;
   }
 
-  public LogInViewModel getLogInViewModel()
+  public LogInViewModel getLogInViewModel() throws IOException
   {
     if (logInViewModel == null)
     {

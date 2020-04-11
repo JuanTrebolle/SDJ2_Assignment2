@@ -20,13 +20,13 @@ public class ChatViewController implements ViewController
   private ChatViewModel chatViewModel;
   private ViewHandler viewHandler;
 
-  //private SocketClient client = new SocketClient();
 
   public ChatViewController() throws IOException
   {
   }
 
   public void init(ViewHandler viewHandler, ViewModelFactory viewModelFactory)
+      throws IOException
   {
     this.viewHandler = viewHandler;
     this.chatViewModel = viewModelFactory.getChatViewModel();
@@ -36,7 +36,6 @@ public class ChatViewController implements ViewController
 
   public void OnSendMessage(ActionEvent actionEvent)
   {
-    //client.sendMessage(userMessage.getText());
     this.chatViewModel.sendMessage();
     userMessage.setText("");
   }
@@ -49,12 +48,13 @@ public class ChatViewController implements ViewController
     System.exit(0);
   }
 
-  public void OnUsers(ActionEvent actionEvent){
+  public void OnUsers(ActionEvent actionEvent) throws IOException
+  {
     viewHandler.openUserView();
-  //  viewHandler.openLogInView();
   }
 
-  public void onLogin(ActionEvent actionEvent) {
+  public void onLogin(ActionEvent actionEvent) throws IOException
+  {
     viewHandler.openLogInView();
   }
 }

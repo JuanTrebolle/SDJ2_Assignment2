@@ -35,7 +35,8 @@ public class ViewHandler
       stage.show();
   }
 
-  public void openLogInView(){
+  public void openLogInView() throws IOException
+  {
     Parent root = loadFXML("../view/loginview/logIn.fxml");
  //   Parent root = loadFXML("../view/loginview/logIn.fxml");
     stage.setTitle("Log In Window");
@@ -44,7 +45,8 @@ public class ViewHandler
     stage.show();
 
   }
-  public void openUserView() {
+  public void openUserView() throws IOException
+  {
     // no reusing a userListScene, because I want the userList to reload the latest every time.
     Parent root = loadFXML("../view/userlogview/userLogView.fxml");
     stage.setTitle("UserListWindow");
@@ -53,7 +55,8 @@ public class ViewHandler
     stage.show();
   }
 
-  private Parent loadFXML(String path){
+  private Parent loadFXML(String path) throws IOException
+  {
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource(path));
     Parent root = null;

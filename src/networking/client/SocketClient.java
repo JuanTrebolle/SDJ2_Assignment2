@@ -9,19 +9,26 @@ import java.net.Socket;
 
 public class SocketClient implements Client{
 
-    private ClientSocketHandler handler;
+  private PropertyChangeSupport support;
+  private ClientSocketHandler handler;
     private String username;
     private PropertyChangeSupport property;
 
     public SocketClient()
         throws IOException
     {
-        property = new PropertyChangeSupport(this);
-        Socket socket = new Socket("localhost", 3122);
-        this.handler = new ClientSocketHandler(socket,this);
-        Thread t = new Thread(handler);
-        t.setDaemon(true);
-        t.start();
+      property = new PropertyChangeSupport(this);
+    }
+
+    public void startClient() throws IOException
+    {
+      Socket socket = new Socket("localhost", 3122);
+      this.handler = new ClientSocketHandler(socket,this);
+
+      Thread t = new Thread(handler);
+      t.setDaemon(true);
+      t.start();
+      System.out.println("hey");
     }
 
     public void messageReceived(String message) {
@@ -51,4 +58,5 @@ public class SocketClient implements Client{
     public void setUsername(String username){
         this.username = username;
     }
+
 }
